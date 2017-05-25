@@ -1,0 +1,388 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% baposter Landscape Poster
+% LaTeX Template
+% Version 1.0 (11/06/13)
+%
+% baposter Class Created by:
+% Brian Amberg (baposter@brian-amberg.de)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[landscape,a0paper,fontscale=0.325]{baposter} % Adjust the font scale/size here
+
+\usepackage[english]{babel}
+\usepackage{graphicx} % Required for including images
+\graphicspath{{figures/}} % Directory in which figures are stored
+
+\usepackage{amsmath} % For typesetting math
+\usepackage{amssymb} % Adds new symbols to be used in math mode
+\usepackage{braket}  % For Bra-Ket notation
+
+\usepackage{booktabs} % Top and bottom rules for tables
+\usepackage{enumitem} % Used to reduce itemize/enumerate spacing
+\usepackage{palatino} % Use the Palatino font
+\usepackage[font=small,labelfont= bf]{caption} % Required for specifying captions to tables and figures
+
+\usepackage{multicol} % Required for multiple columns
+\setlength{\columnsep}{1.5em} % Slightly increase the space between columns
+\setlength{\columnseprule}{0mm} % No horizontal rule between columns
+
+\usepackage{natbib}
+\setlength{\bibsep}{0.0pt}
+
+%\usepackage{tikz} % Required for flow chart
+%\usetikzlibrary{shapes,arrows} % Tikz libraries required for the flow chart in the template
+
+\input{macros}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+% % This is very inflexible
+%\newcommand{\compresslist}{ % Define a command to reduce spacing within itemize/enumerate environments, this is used right after \begin{itemize} or \begin{enumerate}
+%\SetEnumitemValue{\leftmargin}{!}
+%\setlength{\itemsep}{1pt}
+%\setlength{\topsep}{1pt}
+%\setlength{\parsep}{0pt}
+%}
+
+% Key for itemize and enumerate to reduce spacing
+\SetEnumitemKey{compresslist}{
+labelindent=0pt,labelwidth=1em,leftmargin=!,topsep=1pt,itemsep=4pt,parsep=0pt
+}
+
+% Custom colors
+\definecolor{cardinal}{cmyk}{0,1,0.50,0.51}
+
+\begin{document}
+
+\begin{poster}
+{
+columns=3,
+colspacing=0.5em,
+headerborder=closed, % Adds a border around the header of content boxes
+colspacing=1em, % Column spacing
+bgColorOne=white, % Background color for the gradient on the left side of the poster
+bgColorTwo=white, % Background color for the gradient on the right side of the poster
+borderColor=cardinal, % Border color
+headerColorOne=white, % Background color for the header in the content boxes (left side)
+headerColorTwo=white, % Background color for the header in the content boxes (right side)
+headerFontColor=cardinal, % Text color for the header text in the content boxes
+boxColorOne=white, % Background color of the content boxes
+textborder=roundedleft, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+eyecatcher=false, % Set to false for ignoring the left logo in the title and move the title left
+headerheight=0.1\textheight, % Height of the header
+headershape=roundedright, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
+headerfont=\large\bf\textsf, % Large, bold and sans serif font in the headers of content boxes
+%textfont={\setlength{\parindent}{1.5em}}, % Uncomment for paragraph indentation
+linewidth=1pt, % Width of the border lines around content boxes
+textfont=\textsf
+}
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+%
+{\includegraphics[height=4em]{logo.png}} % First university/lab logo on the left
+{\huge \bfseries \textcolor{cardinal}{Active Semi-supervised Learning Using Sampling Theory for Graph Signals} \vspace{0.3em}} % Poster title
+{\large \textbf{Akshay Gadde, Aamir Anis and Antonio Ortega}  \\ \textcolor{gray}{\small{University of Southern California, Los Angeles}} \\ \textcolor{gray}{\small{\{agadde, aanis\}@usc.edu, ortega@sipi.usc.edu}} } % Author names and institution
+{\includegraphics[height=6em]{USC_logo.pdf}} % Second university/lab logo on the right
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM
+%----------------------------------------------------------------------------------------
+
+\headerbox{Motivation and Problem Definition}{name=problem,column=0,row=0}{
+
+\begin{itemize}[compresslist]
+\item Unlabeled data is abundant. Labeled data is expensive and scarce.
+\item \textbf{Problem setting}: Pool-based, batch-mode active SSL via graphs.
+\end{itemize}
+%
+\begin{center}
+\includegraphics[width=0.98\linewidth]{figures/problem_setting.pdf}
+\end{center}
+%\vspace{0.1\figurespace}
+%
+\begin{enumerate}[compresslist]
+\item \textit{How to predict unknown labels from known labels?}
+\item \textit{What is the optimal set of nodes to label, given the learning algorithm?}
+\end{enumerate}
+
+%\vspace{0.1em} % When there are two boxes, some whitespace may need to be added if the one on the right has more content
+}
+
+%----------------------------------------------------------------------------------------
+%	KEY IDEA
+%----------------------------------------------------------------------------------------
+
+\headerbox{Key Ideas}{name=key_idea,column=0,below=problem}{
+\begin{itemize}[compresslist]
+\item Class labels $\Longrightarrow$ \emph{Smooth or bandlimited graph signals}.
+\item Choosing nodes to label $\Longrightarrow$ \emph{Best sampling set selection}.
+\item Predicting unknown labels $\Longrightarrow$ \emph{Signal reconstruction from samples}.
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------
+%	BACKGROUND
+%----------------------------------------------------------------------------------------
+
+\headerbox{Background: Graph Signal Processing}{name=background,column=0,below=key_idea,above=bottom}{
+
+\begin{minipage}{0.69\linewidth}
+%
+\begin{itemize}[compresslist]
+\item \textbf{Graph} $G = (\Vc, \Ec)$ with $n$ nodes
+\begin{itemize}[compresslist]
+\item nodes $\Rightarrow$ data points.
+\item $w_{ij}$: similarity between points $i$ and $j$.
+\item Adjacency matrix $\Wm = [w_{ij}]_{n\times n}$.
+\item Degree matrix $\Dm = \text{diag} \{\sum_{j} w_{ij}\}$.
+\item Laplacian $\Lm = \Dm - \Wm$. 
+\item Normalized Laplacian $\Lcb = \Dm^{-1/2}\Lm\Dm^{-1/2}$.
+\end{itemize}
+\end{itemize}
+%
+\end{minipage}
+%
+\begin{minipage}{0.29\linewidth}
+%
+\centering
+\includegraphics[width=0.6\linewidth]{figures/graph_ex.pdf}
+%
+\end{minipage}
+%
+\vspace{3pt}
+\begin{itemize}[compresslist]
+%
+\item \textbf{Graph signal} $f: \Vc \rightarrow \mathbb{R}$, denoted as $\fv \in \mathbb{R}^n$.
+\begin{itemize}[compresslist]
+\item Membership function $\fv_i$: $\fv_i(j) = 1 \Rightarrow$ node $j$ belongs to class $i$.
+\end{itemize}
+%
+\item Spectrum of $\Lcb$ $\Rightarrow$ spectral representation for graph signals.
+\begin{itemize}[compresslist]
+\item Frequencies: $\{ \lambda_k \} \in [0,2]$; Fourier basis: $\{\uv_k\}$. 
+\end{itemize}
+%
+\end{itemize}
+%
+\vspace{-0.5em}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{figures/eig_gft.pdf}
+\end{center}
+%
+\begin{itemize}[compresslist]
+\item \textbf{Graph Fourier Transform} (GFT): $\tilde{\fv}(\lambda_k) = \Braket{\fv,\uv_k}$ or $\tilde{\fv} = \Um^\top \fv$.
+\end{itemize}
+%
+\begin{minipage}{0.7\linewidth}
+\begin{itemize}[compresslist]
+\item \boldmath $\text{\textbf{PW}}_\omega(\text{\textbf{G}})$ \unboldmath: space of $\omega$-bandlimited graph signals
+\begin{itemize}[compresslist]
+\item Support of GFT $ = [0,\omega]$, i.e., $\tilde{\fv}(\lambda) = 0 \quad \forall \; \lambda > \omega$ 
+\end{itemize}
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.27\linewidth}
+\hfill \includegraphics[width=0.8\linewidth]{figures/gft.pdf}
+\end{minipage}
+%
+\begin{itemize}[compresslist]
+\item \textbf{Class membership functions are smooth graph signals}.
+\end{itemize}
+%
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figures/mem_fn_gft.pdf}
+\end{center}
+}
+
+%----------------------------------------------------------------------------------------
+%	SAMPLING THEORY
+%----------------------------------------------------------------------------------------
+
+\headerbox{Sampling Theory for Graph Signals}{name=sampling_theory,column=1,row=0}{
+
+\begin{itemize}[compresslist]
+\item Sampling theorem: BW $\omega$ $\Leftrightarrow$ sampling rate for unique representation
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.8\linewidth, height=0.17\linewidth]{figures/sampling.pdf}
+\end{center}
+%
+\begin{itemize}[compresslist]
+\item Sampling theory for graph signals:
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.75\linewidth, height=0.18\linewidth]{figures/sampling_graph.pdf}
+\end{center}
+%
+%\begin{itemize}[compresslist]
+%\item \textbf{Relevance to active semi-supervised learning}
+%\begin{itemize}[compresslist]
+%\item approximate membership functions with $\omega$-bandlimited signals, $\omega$ decided by the sampling set $\Sc$.
+%\item \textbf{active}: choose the sampling set that maximizes $\omega$.
+%\item \textbf{semi-supervised}: predict the unknown labels by reconstructing the $\omega$-bandlimited graph signal from its samples on $\Sc$.
+%\end{itemize}
+%\end{itemize}
+
+}
+
+%----------------------------------------------------------------------------------------
+%	ACTIVE SEMI-SUPERVISED LEARNING
+%----------------------------------------------------------------------------------------
+
+\headerbox{Active Semi-supervised Learning}{name=active_learning,column=1,below=sampling_theory,bottomaligned=background}{
+%
+{ \textbf{Approach}}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{figures/analogy.pdf}
+\end{center}
+%
+\hspace{0.5em} {\large \textbf{P1: Cut-off frequency criterion}} \\
+\vspace{0.5em}
+\begin{minipage}{0.5\linewidth}
+\begin{itemize}[compresslist]
+\item $L_2(\Scc) = \{\phi: \phi(\Sc) = \zerov\}$.
+\item For unique sampling, we need $PW_{\omega}(G) \cap L_2(\Scc) = \{\zerov\}$.
+\end{itemize} 
+\end{minipage}%
+%
+\begin{minipage}{0.5\linewidth}
+\hfill
+\includegraphics[width=0.9\linewidth, height=0.3\linewidth]{figures/lemma_int.pdf}
+\end{minipage}%
+%
+\begin{itemize}[compresslist]
+\item Cut-off frequency = smallest BW that a $\phi \in L_2(\Scc)$ can have.
+\item Estimate by $\min_{\phi(\Sc) = \zerov} \left(\frac{\phi^\top \Lcb^k \phi}{\phi^\top \phi}\right)^{1/k}$. Higher $k$ $\Rightarrow$ better estimate.
+\item Let $\{\sigma_{1,k}, \psi_{1,k}\}$ be the smallest eigen-pair of $(\Lcb^k)_{\Scc}$.
+\item Thus, cut-off estimate $\Omega_k(\Sc) = (\sigma_{1,k})^{1/k}$ with $\phi_{\text{opt}}(\Scc) = \psi_{1,k}$.
+\end{itemize}
+%
+\vspace{1em}
+\hspace{0.5em} {\large\textbf{P2: Sampling set selection}}
+\vspace{0.5em}
+%
+\begin{itemize}[compresslist]
+\item For given size, sampling set must be able to maximally capture signal information; $\Sc_{\text{opt}} = \argmax_{|\Sc| = m } \Omega_k(\Sc)$. 
+\end{itemize} 
+%
+\vspace{-0.2em}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{figures/p2_math.pdf}
+\end{center}
+\begin{itemize}
+\item $\xv_{\text{opt}} \approx \phi_\text{opt} \;\; \Rightarrow \;\; \frac{d \lambda_k^\alpha(\tv)}{d \tv(i)} \approx \alpha(\phi_{\text{opt}}(i))^2$.
+\item \textbf{Greedy algorithm}:
+$\Sc \leftarrow \Sc \cup v, \text{ where } v = \argmax_j (\phi_{\text{opt}}(j))^2$
+\end{itemize}
+%
+}
+
+%----------------------------------------------------------------------------------------
+%	ACTIVE SEMI-SUPERVISED LEARNING - CONTINUED
+%----------------------------------------------------------------------------------------
+
+\headerbox{Active Semi-supervised Learning (continued)}{name=active_learning_cotd,column=2,row=0}{
+
+\vspace{0.1em}
+\hspace{0.2em} {\textbf{Maximizing Cut-off Frequency $\Rightarrow$ Active Learning}}
+%
+\begin{itemize}[compresslist]
+\item Cut-off $\Omega_k(\Sc) \equiv$ variation of smoothest signal $\phi_\text{opt}$ in $L_2(\Scc)$.
+\end{itemize}
+%
+\begin{minipage}{0.6\linewidth}
+\begin{itemize}[compresslist]
+\item Larger cut-off $\Rightarrow$ more variation in $\phi_{\text{opt}} \Rightarrow$ more cross-links.
+\item Unlabeled nodes are strongly connected to labeled nodes!
+\end{itemize} 
+\end{minipage}%
+%
+\hfill
+\begin{minipage}{0.38\linewidth}
+\hfill
+\includegraphics[width=0.48\linewidth]{figures/samp_set_intuition_2.pdf}
+\includegraphics[width=0.48\linewidth]{figures/samp_set_intuition_1.pdf}
+\end{minipage}%
+
+\vspace{1em}
+\hspace{0.5em} {\large\textbf{P3: Label prediction by reconstruction}}
+
+\vspace{0.5em}
+\begin{minipage}{0.72\linewidth}
+%
+\begin{itemize}[compresslist]
+\item $\Cc_1 = \{\xv: \xv(\Sc) = \fv(\Sc)\}$ and $\Cc_2 = PW_{\omega}(G)$.
+\item Solution: $\fv \in \Cc_1 \cap \Cc_2$, sampling theory $\Rightarrow$ unique $\fv$.
+\item POCS: $\fv_{i+1} = \Pm_{\Cc_2}\Pm_{\Cc_1} \fv_i$, where $\fv_0 = [\fv(\Sc)^\top, \zerov]^\top$.
+\begin{itemize}[compresslist]
+\item $\Pm_{\Cc_1}$ resets the samples on $\Sc$ to $\fv(\Sc)$.
+\item $\Pm_{\Cc_2} = \Um h(\mathbf{\Lambda}) \Um^\top$ sets $\tilde{\fv}(\lambda) = 0$ if $\lambda > \omega$. 
+\end{itemize}
+\end{itemize} 
+\end{minipage}%
+%
+\hfill
+\begin{minipage}{0.27\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{figures/pocs-1.pdf}
+\end{center}
+\end{minipage}%
+%
+\begin{itemize}[compresslist]
+\item $\Pm_{\Cc_2} \approx \sum_{i=1}^n \left(\sum_{j=0}^p a_j \lambda_i^j\right) \uv_i \uv_i^\top = \sum_{j=0}^p a_j \Lcb^j \rightarrow$ $p$-hop localized
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------
+%	ACTIVE SEMI-SUPERVISED LEARNING - CONTINUED
+%----------------------------------------------------------------------------------------
+
+\headerbox{Results}{name=results,column=2,below=active_learning_cotd}{
+
+\textbf{Toy example}:
+\begin{center}
+\includegraphics[width=0.92\linewidth]{figures/toy_result.pdf}
+\end{center}
+%
+\textbf{Real datasets}:
+\begin{center}
+\includegraphics[width=0.92\textwidth]{figures/real_data_result.pdf}
+\end{center}
+%
+\textbf{Effect of $k$}:
+\begin{center}
+\includegraphics[width=0.92\textwidth]{figures/effect_of_k.pdf}
+\end{center}
+}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\headerbox{References}{name=references,column=2,below=results,bottomaligned=active_learning}{
+\vspace{-\baselineskip}
+\renewcommand{\section}[2]{\vskip 0.05em} % Get rid of the default "References" section title
+\nocite{*} % Insert publications even if they are not cited in the poster
+\tiny{ % Reduce the font size in this block
+\bibliographystyle{plain}
+\bibliography{references_v2}
+}
+}
+
+%----------------------------------------------------------------------------------------
+
+\end{poster}
+
+\end{document}
