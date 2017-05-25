@@ -18,7 +18,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[landscape,a0paper,fontscale=0.325]{baposter} % Adjust the font scale/size here
+\documentclass[b1paper,fontscale=0.325]{baposter} % Adjust the font scale/size here
 
 \usepackage[english]{babel}
 \usepackage{graphicx} % Required for including images
@@ -67,7 +67,7 @@ labelindent=0pt,labelwidth=1em,leftmargin=!,topsep=1pt,itemsep=4pt,parsep=0pt
 
 \begin{poster}
 {
-columns=3,
+columns=2,
 colspacing=0.5em,
 headerborder=closed, % Adds a border around the header of content boxes
 colspacing=1em, % Column spacing
@@ -91,10 +91,14 @@ textfont=\textsf
 %	TITLE SECTION 
 %----------------------------------------------------------------------------------------
 %
-{\includegraphics[height=4em]{logo.png}} % First university/lab logo on the left
-{\huge \bfseries \textcolor{cardinal}{Active Semi-supervised Learning Using Sampling Theory for Graph Signals} \vspace{0.3em}} % Poster title
-{\large \textbf{Akshay Gadde, Aamir Anis and Antonio Ortega}  \\ \textcolor{gray}{\small{University of Southern California, Los Angeles}} \\ \textcolor{gray}{\small{\{agadde, aanis\}@usc.edu, ortega@sipi.usc.edu}} } % Author names and institution
-{\includegraphics[height=6em]{USC_logo.pdf}} % Second university/lab logo on the right
+{\includegraphics[height=3em]{logo_MERL.pdf}} % First university/lab logo on the left
+{\huge \bfseries \textcolor{cardinal}{Disc-GLasso: Discriminative Graph Learning with Sparsity Regularization} \vspace{0.3em}} % Poster title
+{\large \textbf{Jiun-Yu Kao$^{1}$, Dong Tian$^{2}$, Hassan Mansour$^{2}$, Antonio Ortega$^{1}$ and Anthony Vetro$^{2}$}  
+\\ \textcolor{gray}{\small{$^{1}$ University of Southern California, Los Angeles, CA}} 
+\\ \textcolor{gray}{\small{$^{2}$ Mitsubishi Electric Research Labs (MERL), Cambridge, MA}}
+%\\ \textcolor{gray}{\small{\{agadde, aanis\}@usc.edu, ortega@sipi.usc.edu}} 
+} % Author names and institution
+{\includegraphics[height=3em]{USC_logo.pdf}\\\includegraphics[height=3em]{logo_MERL.pdf}} % Second university/lab logo on the right
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM
@@ -241,7 +245,7 @@ textfont=\textsf
 %	ACTIVE SEMI-SUPERVISED LEARNING
 %----------------------------------------------------------------------------------------
 
-\headerbox{Active Semi-supervised Learning}{name=active_learning,column=1,below=sampling_theory,bottomaligned=background}{
+\headerbox{Active Semi-supervised Learning}{name=active_learning,column=1,below=sampling_theory}{
 %
 { \textbf{Approach}}
 \begin{center}
@@ -293,85 +297,85 @@ $\Sc \leftarrow \Sc \cup v, \text{ where } v = \argmax_j (\phi_{\text{opt}}(j))^
 %	ACTIVE SEMI-SUPERVISED LEARNING - CONTINUED
 %----------------------------------------------------------------------------------------
 
-\headerbox{Active Semi-supervised Learning (continued)}{name=active_learning_cotd,column=2,row=0}{
-
-\vspace{0.1em}
-\hspace{0.2em} {\textbf{Maximizing Cut-off Frequency $\Rightarrow$ Active Learning}}
+%\headerbox{Active Semi-supervised Learning (continued)}{name=active_learning_cotd,column=2,row=0}{
 %
-\begin{itemize}[compresslist]
-\item Cut-off $\Omega_k(\Sc) \equiv$ variation of smoothest signal $\phi_\text{opt}$ in $L_2(\Scc)$.
-\end{itemize}
+%\vspace{0.1em}
+%\hspace{0.2em} {\textbf{Maximizing Cut-off Frequency $\Rightarrow$ Active Learning}}
+%%
+%\begin{itemize}[compresslist]
+%\item Cut-off $\Omega_k(\Sc) \equiv$ variation of smoothest signal $\phi_\text{opt}$ in $L_2(\Scc)$.
+%\end{itemize}
+%%
+%\begin{minipage}{0.6\linewidth}
+%\begin{itemize}[compresslist]
+%\item Larger cut-off $\Rightarrow$ more variation in $\phi_{\text{opt}} \Rightarrow$ more cross-links.
+%\item Unlabeled nodes are strongly connected to labeled nodes!
+%\end{itemize} 
+%\end{minipage}%
+%%
+%\hfill
+%\begin{minipage}{0.38\linewidth}
+%\hfill
+%\includegraphics[width=0.48\linewidth]{figures/samp_set_intuition_2.pdf}
+%\includegraphics[width=0.48\linewidth]{figures/samp_set_intuition_1.pdf}
+%\end{minipage}%
 %
-\begin{minipage}{0.6\linewidth}
-\begin{itemize}[compresslist]
-\item Larger cut-off $\Rightarrow$ more variation in $\phi_{\text{opt}} \Rightarrow$ more cross-links.
-\item Unlabeled nodes are strongly connected to labeled nodes!
-\end{itemize} 
-\end{minipage}%
+%\vspace{1em}
+%\hspace{0.5em} {\large\textbf{P3: Label prediction by reconstruction}}
 %
-\hfill
-\begin{minipage}{0.38\linewidth}
-\hfill
-\includegraphics[width=0.48\linewidth]{figures/samp_set_intuition_2.pdf}
-\includegraphics[width=0.48\linewidth]{figures/samp_set_intuition_1.pdf}
-\end{minipage}%
-
-\vspace{1em}
-\hspace{0.5em} {\large\textbf{P3: Label prediction by reconstruction}}
-
-\vspace{0.5em}
-\begin{minipage}{0.72\linewidth}
-%
-\begin{itemize}[compresslist]
-\item $\Cc_1 = \{\xv: \xv(\Sc) = \fv(\Sc)\}$ and $\Cc_2 = PW_{\omega}(G)$.
-\item Solution: $\fv \in \Cc_1 \cap \Cc_2$, sampling theory $\Rightarrow$ unique $\fv$.
-\item POCS: $\fv_{i+1} = \Pm_{\Cc_2}\Pm_{\Cc_1} \fv_i$, where $\fv_0 = [\fv(\Sc)^\top, \zerov]^\top$.
-\begin{itemize}[compresslist]
-\item $\Pm_{\Cc_1}$ resets the samples on $\Sc$ to $\fv(\Sc)$.
-\item $\Pm_{\Cc_2} = \Um h(\mathbf{\Lambda}) \Um^\top$ sets $\tilde{\fv}(\lambda) = 0$ if $\lambda > \omega$. 
-\end{itemize}
-\end{itemize} 
-\end{minipage}%
-%
-\hfill
-\begin{minipage}{0.27\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{figures/pocs-1.pdf}
-\end{center}
-\end{minipage}%
-%
-\begin{itemize}[compresslist]
-\item $\Pm_{\Cc_2} \approx \sum_{i=1}^n \left(\sum_{j=0}^p a_j \lambda_i^j\right) \uv_i \uv_i^\top = \sum_{j=0}^p a_j \Lcb^j \rightarrow$ $p$-hop localized
-\end{itemize}
-}
+%\vspace{0.5em}
+%\begin{minipage}{0.72\linewidth}
+%%
+%\begin{itemize}[compresslist]
+%\item $\Cc_1 = \{\xv: \xv(\Sc) = \fv(\Sc)\}$ and $\Cc_2 = PW_{\omega}(G)$.
+%\item Solution: $\fv \in \Cc_1 \cap \Cc_2$, sampling theory $\Rightarrow$ unique $\fv$.
+%\item POCS: $\fv_{i+1} = \Pm_{\Cc_2}\Pm_{\Cc_1} \fv_i$, where $\fv_0 = [\fv(\Sc)^\top, \zerov]^\top$.
+%\begin{itemize}[compresslist]
+%\item $\Pm_{\Cc_1}$ resets the samples on $\Sc$ to $\fv(\Sc)$.
+%\item $\Pm_{\Cc_2} = \Um h(\mathbf{\Lambda}) \Um^\top$ sets $\tilde{\fv}(\lambda) = 0$ if $\lambda > \omega$. 
+%\end{itemize}
+%\end{itemize} 
+%\end{minipage}%
+%%
+%\hfill
+%\begin{minipage}{0.27\linewidth}
+%\begin{center}
+%\includegraphics[width=\linewidth]{figures/pocs-1.pdf}
+%\end{center}
+%\end{minipage}%
+%%
+%\begin{itemize}[compresslist]
+%\item $\Pm_{\Cc_2} \approx \sum_{i=1}^n \left(\sum_{j=0}^p a_j \lambda_i^j\right) \uv_i \uv_i^\top = \sum_{j=0}^p a_j \Lcb^j \rightarrow$ $p$-hop localized
+%\end{itemize}
+%}
 
 %----------------------------------------------------------------------------------------
 %	ACTIVE SEMI-SUPERVISED LEARNING - CONTINUED
 %----------------------------------------------------------------------------------------
 
-\headerbox{Results}{name=results,column=2,below=active_learning_cotd}{
-
-\textbf{Toy example}:
-\begin{center}
-\includegraphics[width=0.92\linewidth]{figures/toy_result.pdf}
-\end{center}
+%\headerbox{Results}{name=results,column=2,below=active_learning_cotd}{
 %
-\textbf{Real datasets}:
-\begin{center}
-\includegraphics[width=0.92\textwidth]{figures/real_data_result.pdf}
-\end{center}
-%
-\textbf{Effect of $k$}:
-\begin{center}
-\includegraphics[width=0.92\textwidth]{figures/effect_of_k.pdf}
-\end{center}
-}
+%\textbf{Toy example}:
+%\begin{center}
+%\includegraphics[width=0.92\linewidth]{figures/toy_result.pdf}
+%\end{center}
+%%
+%\textbf{Real datasets}:
+%\begin{center}
+%\includegraphics[width=0.92\textwidth]{figures/real_data_result.pdf}
+%\end{center}
+%%
+%\textbf{Effect of $k$}:
+%\begin{center}
+%\includegraphics[width=0.92\textwidth]{figures/effect_of_k.pdf}
+%\end{center}
+%}
 
 %----------------------------------------------------------------------------------------
 %	REFERENCES
 %----------------------------------------------------------------------------------------
 
-\headerbox{References}{name=references,column=2,below=results,bottomaligned=active_learning}{
+\headerbox{References}{name=references,column=1,below=active_learning,bottomaligned=background}{
 \vspace{-\baselineskip}
 \renewcommand{\section}[2]{\vskip 0.05em} % Get rid of the default "References" section title
 \nocite{*} % Insert publications even if they are not cited in the poster
