@@ -149,142 +149,159 @@ textfont=\textsf
 \headerbox{Motivation}{name=motiv,column=0,row=0}{
 
 Graph structures are natural to use 
-\begin{itemize}
+\begin{itemize}[compresslist]
 \item Construct optimal graph not trivial
-	\begin{itemize}
+	\begin{itemize}[compresslist]
 	\item learn from data
 	\end{itemize}
 \item Prior art learn graphs w.r.t. 
-	\begin{itemize}
+	\begin{itemize}[compresslist]
 	\item Representability: benefits energy compaction
 	\item Sparsity: benefits interpretation
 	\end{itemize}
 \end{itemize} 
 
-\textbf{Prior Art Approach and Issue}
-Apply GLasso for data in each class independently
-\begin{itemize}
-	\item Only consider representability and sparsity within each class
-	\item Discrimination between classes not guaranteed
+{\textbf{Objectives}}
+\begin{itemize}[compresslist]
+\item Multi-class classification among data samples (graph signals)
+\item Develop approach to learn a set of graphs that benefits classification
+\end{itemize}
+
+%{\textbf{Prior Art Approach and Issue}}\\
+%Apply GLasso for data in each class independently
+%\begin{itemize}[compresslist]
+%	\item Only consider representability and sparsity within each class
+%	\item Discrimination between classes not guaranteed
+%\end{itemize}
+
+{\textbf{Key Contributions}}
+\begin{itemize}[compresslist]
+\item First propose multi-graph learning that promotes discrimination
+\item Develop efficient algorithm to learn discriminative class-specific graphs 
 \end{itemize}
 
 %\vspace{0.1em} % When there are two boxes, some whitespace may need to be added if the one on the right has more content
 }
 
 %----------------------------------------------------------------------------------------
-%	KEY IDEA
+%	KEY CONTRIBUTIONS
 %----------------------------------------------------------------------------------------
 
-\headerbox{Key Ideas}{name=key_idea,column=0,below=motiv}{
-\begin{itemize}[compresslist]
-\item Class labels $\Longrightarrow$ \emph{Smooth or bandlimited graph signals}.
-\item Choosing nodes to label $\Longrightarrow$ \emph{Best sampling set selection}.
-\item Predicting unknown labels $\Longrightarrow$ \emph{Signal reconstruction from samples}.
-\end{itemize}
-}
+%\headerbox{Key Contributions}{name=key_contrib,column=0,below=motiv}{
+%\begin{itemize}[compresslist]
+%\item First propose multi-graph learning that promotes discrimination
+%\item Develop efficient algorithm to learn discriminative class-specific graphs 
+%\end{itemize}
+%}
 
 %----------------------------------------------------------------------------------------
 %	BACKGROUND
 %----------------------------------------------------------------------------------------
 
-\headerbox{Background: Graph Signal Processing}{name=background,column=0,below=key_idea,above=bottom}{
+\headerbox{Problem Formulation}{name=problem,column=0,below=motiv}{
 
-\begin{minipage}{0.69\linewidth}
-%
+\textbf{Notations}
 \begin{itemize}[compresslist]
-\item \textbf{Graph} $G = (\Vc, \Ec)$ with $n$ nodes
+\item random graph signals in $i$-th class: $\xbf^{(i)}\in \mathbb{R}^{n}$
+\item $S$ classes in total
+\item For $i$-th class, $N_i$ i.i.d. realizations/samples: $\xbf_1^{(i)},\dots,\xbf_{N_i}^{(i)}$
+\item $\Kbf_i$: empirical cov. matrix of samples in $i$-th class
+\end{itemize}
+\vspace{.3em}
+Define \textcolor{red}{multi-category graph learning} problem:\\
+\textbf{Goal:} learn graph structure of each category, $\mathcal{G}_1,\dots,\mathcal{G}_S$
 \begin{itemize}[compresslist]
-\item nodes $\Rightarrow$ data points.
-\item $w_{ij}$: similarity between points $i$ and $j$.
-\item Adjacency matrix $\Wm = [w_{ij}]_{n\times n}$.
-\item Degree matrix $\Dm = \text{diag} \{\sum_{j} w_{ij}\}$.
-\item Laplacian $\Lm = \Dm - \Wm$. 
-\item Normalized Laplacian $\Lcb = \Dm^{-1/2}\Lm\Dm^{-1/2}$.
+\item $\mathcal{G}_i=(\mathcal{V},\mathcal{E}_i,\Qbf_i)$, n-vertex set $\mathcal{V}$, edge set $\mathcal{E}_i$
+\item Symmetric matrix representation $\Qbf_i$, where $\forall a\neq b$, $(a,b)\in\mathcal{E}_i \iff \Qbf_{i,ab}\neq 0$
+\item $\Qbf_i$ is only required to be positive semi-definite
 \end{itemize}
-\end{itemize}
-%
-\end{minipage}
-%
-\begin{minipage}{0.29\linewidth}
-%
-\centering
-\includegraphics[width=0.6\linewidth]{figures/graph_ex.pdf}
-%
-\end{minipage}
-%
-\vspace{3pt}
+
+}
+
+%----------------------------------------------------------------------------------------
+%	BASELINE
+%----------------------------------------------------------------------------------------
+
+\headerbox{Baseline Approach}{name=baseline,column=0,below=problem}{
+
+Apply graphical lasso indep. to each class:
 \begin{itemize}[compresslist]
-%
-\item \textbf{Graph signal} $f: \Vc \rightarrow \mathbb{R}$, denoted as $\fv \in \mathbb{R}^n$.
-\begin{itemize}[compresslist]
-\item Membership function $\fv_i$: $\fv_i(j) = 1 \Rightarrow$ node $j$ belongs to class $i$.
+\item Solve $\ell_1$-penalized Gaussian ML estimation problem separately for the graph of each category $i$, 
+			$$\small \mathrm{min} -\log\det(\Qbf_i) + \mathrm{tr}(\Kbf_i\Qbf_i) + \rho {\|\Qbf_i\|}_1$$
+\vspace{-1.7em}
+	\begin{itemize}[compresslist]
+	\item $\mathrm{tr}(\Kbf_i\Qbf_i)=\frac{1}{N_i} \sum_{k=1}^{N_i} {\xbf_k^{(i)}}^T \Qbf_i \xbf_k^{(i)}$
+	\item Minimize above term $\Rightarrow$ promote smoothness of data samples in $i$-th class on $i$-th graph
+	\end{itemize}
+\item Only favor energy compaction and sparsity within each class %$\Rightarrow$ not guarantee to be effective in discriminating between classes
+\item Discrimination between classes not guaranteed
 \end{itemize}
-%
-\item Spectrum of $\Lcb$ $\Rightarrow$ spectral representation for graph signals.
-\begin{itemize}[compresslist]
-\item Frequencies: $\{ \lambda_k \} \in [0,2]$; Fourier basis: $\{\uv_k\}$. 
-\end{itemize}
-%
-\end{itemize}
-%
-\vspace{-0.5em}
-\begin{center}
-\includegraphics[width=0.8\linewidth]{figures/eig_gft.pdf}
-\end{center}
-%
-\begin{itemize}[compresslist]
-\item \textbf{Graph Fourier Transform} (GFT): $\tilde{\fv}(\lambda_k) = \Braket{\fv,\uv_k}$ or $\tilde{\fv} = \Um^\top \fv$.
-\end{itemize}
-%
-\begin{minipage}{0.7\linewidth}
-\begin{itemize}[compresslist]
-\item \boldmath $\text{\textbf{PW}}_\omega(\text{\textbf{G}})$ \unboldmath: space of $\omega$-bandlimited graph signals
-\begin{itemize}[compresslist]
-\item Support of GFT $ = [0,\omega]$, i.e., $\tilde{\fv}(\lambda) = 0 \quad \forall \; \lambda > \omega$ 
-\end{itemize}
-\end{itemize}
-\end{minipage}
-\begin{minipage}{0.27\linewidth}
-\hfill \includegraphics[width=0.8\linewidth]{figures/gft.pdf}
-\end{minipage}
-%
-\begin{itemize}[compresslist]
-\item \textbf{Class membership functions are smooth graph signals}.
-\end{itemize}
-%
-\begin{center}
-\includegraphics[width=0.75\linewidth]{figures/mem_fn_gft.pdf}
-\end{center}
+
+}
+
+%----------------------------------------------------------------------------------------
+%	DISC-GLASSO
+%----------------------------------------------------------------------------------------
+
+\headerbox{Disc-GLasso Algorithm}{name=disc_glasso,column=0,below=baseline,above=bottom}{
+
+For each $\Wbf_i$, given the empirical covariance matrices $\Kbf_1,\cdots,\Kbf_S$.
+\begin{enumerate}[compresslist]
+\item Search for the minimum ratio $r$ such that $\Kbf_i - \frac{1}{r} \sum_{j\neq i}^S \Kbf_j \succeq 0, \forall i$.
+%\vspace{.1em}			
+\item Initialize with $\Wbf_i = \Kbf_i + \rho\Ibf - \frac{1}{r}\sum_{j\neq i}^S \Kbf_j$. The diagonal of $\Wbf_i$ will remain unchanged in what follows.
+\vspace{.1em}
+\item Perform following steps until convergence reached:
+\vspace{.1em}
+	\begin{enumerate}[compresslist]
+	\item Rearrange the rows/columns so that the target column is last.
+	%\vspace{.1em}
+	\item Solve the lasso problem for $\hat{\beta}$:
+	\vspace{-.5em}
+	\footnotesize	
+	$$\mathrm{arg}\underset{\beta}{\mathrm{min}} \frac{1}{2} {\left\| {\Wbf_{11}^i}^{1/2}\beta - {\Wbf_{11}^i}^{-1/2}\kbf_{12}^i + \frac{1}{r}\sum_{j\neq i}^S {\Wbf_{11}^i}^{-1/2}\kbf_{12}^j \right\|}^2 + \rho {\|\beta\|}_1$$
+	\vspace{-1em}
+	\normalsize
+	\item Fill in the corresponding row and column of $\Wbf_i$ using $\wbf_{12}^i = \Wbf_{11}^i \hat{\beta}$.
+	\end{enumerate}
+\end{enumerate}
+
 }
 
 %----------------------------------------------------------------------------------------
 %	SAMPLING THEORY
 %----------------------------------------------------------------------------------------
 
-\headerbox{Sampling Theory for Graph Signals}{name=sampling_theory,column=1,row=0}{
+\headerbox{Proposed Solution}{name=solution,column=1,row=0}{
 
 \begin{itemize}[compresslist]
-\item Sampling theorem: BW $\omega$ $\Leftrightarrow$ sampling rate for unique representation
+\item Key idea: jointly learn the graphs for all classes by promoting
+	\begin{itemize}[compresslist]
+    \item Smoothness of data in $i$-th class on $i$-th graph
+    \item \textcolor{red}{Non-smoothness on learned graphs corresponding to the other classes}
+    \end{itemize}
+\item To achieve above properties, we need to minimize the following, %on $\Qbf_1,\dots,\Qbf_S$
+\vspace{-.5em}
+	\small
+	\begin{equation*}			
+	\sum_{i=1}^S \sum_{k=1}^{N_i} \frac{1}{N_i} \left[ 
+	{\xbf_k^{(i)}}^T\Qbf_i\xbf_k^{(i)} - \frac{1}{S-1}\sum_{j\neq i}^S {\xbf_k^{(i)}}^T \Qbf_j \xbf_k^{(i)}\right]
+	\end{equation*}
+	\normalsize
+\vspace{-1.5em}
+\item Finally, we propose to solve the optimization problem below.
+\vspace{-1em}
+\small
+\begin{equation}
+\label{eq:4}
+\small
+\underset{\Qbf_i\succeq 0}{\mathrm{min}} -\log\det(\Qbf_i) + \mathrm{tr}(\Kbf_i\Qbf_i) \textcolor{red}{ \,-\, \frac{\mu_i}{S-1}\sum_{j\neq i}^S \mathrm{tr}(\Kbf_j\Qbf_i)} + \rho_i {\|\Qbf_i\|}_1,
+\vspace{-.9em}
+\end{equation}
+\normalsize
+for each $\Qbf_i$, given $\Kbf_1, \dots, \Kbf_S$.		
+\item A block coordinate descent based algorithm is developed to solve (\ref{eq:4}).  
 \end{itemize}
-\begin{center}
-\includegraphics[width=0.8\linewidth, height=0.17\linewidth]{figures/sampling.pdf}
-\end{center}
-%
-\begin{itemize}[compresslist]
-\item Sampling theory for graph signals:
-\end{itemize}
-\begin{center}
-\includegraphics[width=0.75\linewidth, height=0.18\linewidth]{figures/sampling_graph.pdf}
-\end{center}
-%
-%\begin{itemize}[compresslist]
-%\item \textbf{Relevance to active semi-supervised learning}
-%\begin{itemize}[compresslist]
-%\item approximate membership functions with $\omega$-bandlimited signals, $\omega$ decided by the sampling set $\Sc$.
-%\item \textbf{active}: choose the sampling set that maximizes $\omega$.
-%\item \textbf{semi-supervised}: predict the unknown labels by reconstructing the $\omega$-bandlimited graph signal from its samples on $\Sc$.
-%\end{itemize}
-%\end{itemize}
 
 }
 
@@ -292,52 +309,21 @@ Apply GLasso for data in each class independently
 %	ACTIVE SEMI-SUPERVISED LEARNING
 %----------------------------------------------------------------------------------------
 
-\headerbox{Active Semi-supervised Learning}{name=active_learning,column=1,below=sampling_theory}{
+\headerbox{Experiments}{name=result,column=1,below=solution}{
 %
-{ \textbf{Approach}}
-\begin{center}
-\includegraphics[width=0.9\linewidth]{figures/analogy.pdf}
-\end{center}
-%
-\hspace{0.5em} {\large \textbf{P1: Cut-off frequency criterion}} \\
-\vspace{0.5em}
-\begin{minipage}{0.5\linewidth}
-\begin{itemize}[compresslist]
-\item $L_2(\Scc) = \{\phi: \phi(\Sc) = \zerov\}$.
-\item For unique sampling, we need $PW_{\omega}(G) \cap L_2(\Scc) = \{\zerov\}$.
-\end{itemize} 
-\end{minipage}%
-%
-\begin{minipage}{0.5\linewidth}
-\hfill
-\includegraphics[width=0.9\linewidth, height=0.3\linewidth]{figures/lemma_int.pdf}
-\end{minipage}%
-%
-\begin{itemize}[compresslist]
-\item Cut-off frequency = smallest BW that a $\phi \in L_2(\Scc)$ can have.
-\item Estimate by $\min_{\phi(\Sc) = \zerov} \left(\frac{\phi^\top \Lcb^k \phi}{\phi^\top \phi}\right)^{1/k}$. Higher $k$ $\Rightarrow$ better estimate.
-\item Let $\{\sigma_{1,k}, \psi_{1,k}\}$ be the smallest eigen-pair of $(\Lcb^k)_{\Scc}$.
-\item Thus, cut-off estimate $\Omega_k(\Sc) = (\sigma_{1,k})^{1/k}$ with $\phi_{\text{opt}}(\Scc) = \psi_{1,k}$.
-\end{itemize}
-%
-\vspace{1em}
-\hspace{0.5em} {\large\textbf{P2: Sampling set selection}}
-\vspace{0.5em}
-%
-\begin{itemize}[compresslist]
-\item For given size, sampling set must be able to maximally capture signal information; $\Sc_{\text{opt}} = \argmax_{|\Sc| = m } \Omega_k(\Sc)$. 
-\end{itemize} 
-%
-\vspace{-0.2em}
-\begin{center}
-\includegraphics[width=0.9\linewidth]{figures/p2_math.pdf}
-\end{center}
-\begin{itemize}
-\item $\xv_{\text{opt}} \approx \phi_\text{opt} \;\; \Rightarrow \;\; \frac{d \lambda_k^\alpha(\tv)}{d \tv(i)} \approx \alpha(\phi_{\text{opt}}(i))^2$.
-\item \textbf{Greedy algorithm}:
-$\Sc \leftarrow \Sc \cup v, \text{ where } v = \argmax_j (\phi_{\text{opt}}(j))^2$
-\end{itemize}
-%
+{\textbf{Synthetic data for binary classification}}\\
+
+        {
+		%\begin{figure}
+  		\begin{center}
+    	\includegraphics[width=.3\textwidth]{s_measure_new_v2_cropped_embedded.pdf} \hspace{.6em}
+	% \quad
+    	\includegraphics[width=.29\textwidth]{classification_r_v2_cropped_embedded.pdf}
+		%\caption{The separation measure \textbf{(left)} and classification accuracy \textbf{(right)} versus $r$.}
+		\end{center}
+		%\end{figure}
+		}   
+ 
 }
 
 %----------------------------------------------------------------------------------------
@@ -422,13 +408,17 @@ $\Sc \leftarrow \Sc \cup v, \text{ where } v = \argmax_j (\phi_{\text{opt}}(j))^
 %	REFERENCES
 %----------------------------------------------------------------------------------------
 
-\headerbox{References}{name=references,column=1,below=active_learning,bottomaligned=background}{
-\vspace{-\baselineskip}
+\headerbox{References}{name=references,column=1,below=result,bottomaligned=disc_glasso}{
 \renewcommand{\section}[2]{\vskip 0.05em} % Get rid of the default "References" section title
 \nocite{*} % Insert publications even if they are not cited in the poster
-\tiny{ % Reduce the font size in this block
-\bibliographystyle{plain}
-\bibliography{references_v2}
+\small{ % Reduce the font size in this block
+%\bibliographystyle{plain}
+%\bibliography{references_v2}
+ \begin{itemize}[compresslist]
+\item J. Friedman et.al, ``Sparse inverse covariance estimation with the graphical lasso,'' Biostatistics, 2008.
+\item R. Mazumder and T. Hastie, ``The graphical lasso: New insights and alternatives,'' Elect. journal of stat., 2012.
+%\item H. Mansour, et.al, ``Video background subtraction using semi-supervised robust matrix completion,'' IEEE ICASSP, 2014
+\end{itemize}
 }
 }
 
