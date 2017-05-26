@@ -152,7 +152,7 @@ Graph structures are natural to use
 \begin{itemize}[compresslist]
 \item Construct optimal graph not trivial
 	\begin{itemize}[compresslist]
-	\item learn from data
+	\item benefit subsequent data analysis \& could learn from data
 	\end{itemize}
 \item Prior art learn graphs w.r.t. 
 	\begin{itemize}[compresslist]
@@ -195,7 +195,7 @@ Graph structures are natural to use
 %}
 
 %----------------------------------------------------------------------------------------
-%	BACKGROUND
+%	PROBLEM FORMULATION
 %----------------------------------------------------------------------------------------
 
 \headerbox{Problem Formulation}{name=problem,column=0,below=motiv}{
@@ -240,7 +240,7 @@ Apply graphical lasso indep. to each class:
 }
 
 %----------------------------------------------------------------------------------------
-%	DISC-GLASSO
+%	DISC-GLASSO ALGORITHM
 %----------------------------------------------------------------------------------------
 
 \headerbox{Disc-GLasso Algorithm}{name=disc_glasso,column=0,below=baseline,above=bottom}{
@@ -269,7 +269,7 @@ For each $\Wbf_i$, given the empirical covariance matrices $\Kbf_1,\cdots,\Kbf_S
 }
 
 %----------------------------------------------------------------------------------------
-%	SAMPLING THEORY
+%	PROPOSED SOLUTION
 %----------------------------------------------------------------------------------------
 
 \headerbox{Proposed Solution}{name=solution,column=1,row=0}{
@@ -302,28 +302,77 @@ For each $\Wbf_i$, given the empirical covariance matrices $\Kbf_1,\cdots,\Kbf_S
 for each $\Qbf_i$, given $\Kbf_1, \dots, \Kbf_S$.		
 \item A block coordinate descent based algorithm is developed to solve (\ref{eq:4}).  
 \end{itemize}
+\vspace{.3em}
+\textbf{Parameter Choice: }Let $r = \frac{S-1}{\mu}$,
+\vspace{.4em}
+\begin{itemize}[compresslist]
+\item Smaller $r$ $\Rightarrow$ better discrimination 
+\item Need to ensure $\Kbf_i - \frac{1}{r} \sum_{j\neq i}^S \Kbf_j \succeq 0, \forall i$ to guarantee that after each updating step $t$, $\Wbf_i^{(t)}\succ 0, \forall t$.
+\end{itemize}
+\vspace{.4em}
+In proposed algorithm, we search for the minimum $r$ s.t. $\Kbf_i - \frac{1}{r} \sum_{j\neq i}^S \Kbf_j \succeq 0, \forall i$, via line search through predefined set of values.
+\vspace{.4em}
+\begin{itemize}[compresslist]
+\item the only additional time cost of our algorithm compared to GLasso
+\end{itemize}
 
 }
 
 %----------------------------------------------------------------------------------------
-%	ACTIVE SEMI-SUPERVISED LEARNING
+%	EXPERIMENTS
 %----------------------------------------------------------------------------------------
 
 \headerbox{Experiments}{name=result,column=1,below=solution}{
 %
 {\textbf{Synthetic data for binary classification}}\\
-
-        {
-		%\begin{figure}
-  		\begin{center}
-    	\includegraphics[width=.3\textwidth]{s_measure_new_v2_cropped_embedded.pdf} \hspace{.6em}
+{
+\vspace{-.5em}
+\small
+\begin{itemize}[compresslist]
+\item \textbf{From left to right:} $\mathcal{G}_1$, $\mathcal{G}_2$ learned with GLasso, and $\mathcal{G}_1$, $\mathcal{G}_2$  learned with Disc-GLasso.
+\end{itemize}
+\vspace{-.8em}
+\begin{center}
+\includegraphics[width=.2\textwidth]{figures/glasso_g1_w2y_01_new_cropped_embedded.pdf} \hspace{.3em}
+\includegraphics[width=.2\textwidth]{figures/glasso_g2_w2y_01_new_cropped_embedded.pdf} \hspace{.3em}
+\includegraphics[width=.2\textwidth]{figures/disc_g1_w2y_01_new_cropped_embedded.pdf} \hspace{.3em}
+\includegraphics[width=.2\textwidth]{figures/disc_g2_w2y_01_new_cropped_embedded.pdf} %\vspace{.3em}
+%\multicolumn{4}{c}{(a) picture 5 of \textit{cars1}} \\
+% {\small (f) frame 27 of \textit{cars10} with three motions}
+%\caption{\textbf{From left to right:} $\mathcal{G}_1$, $\mathcal{G}_2$ learned with GLasso, and $\mathcal{G}_1$, $\mathcal{G}_2$  learned with Disc-GLasso.}
+\end{center}
+}
+{
+\vspace{-.8em}
+\small
+\begin{itemize}[compresslist]
+\item Cumulative spectrum energy of test signals in class 1 \textbf{(left)} and class 2 \textbf{(right)} on the learned graphs.
+\end{itemize}
+\vspace{-1em}
+\begin{center}
+\includegraphics[width=.4\textwidth]{figures/test_spectrum_signal1_new_cropped_embedded.pdf} \hspace{.3em}
 	% \quad
-    	\includegraphics[width=.29\textwidth]{classification_r_v2_cropped_embedded.pdf}
-		%\caption{The separation measure \textbf{(left)} and classification accuracy \textbf{(right)} versus $r$.}
-		\end{center}
-		%\end{figure}
-		}   
- 
+\includegraphics[width=.4\textwidth]{figures/test_spectrum_signal2_new_cropped_embedded.pdf}
+%\caption{Cumulative spectrum energy of test signals in class 1 \textbf{(left)} and class 2 \textbf{(right)} on the learned graphs.}
+\end{center}
+}
+{
+%\begin{figure}
+\vspace{-1em}
+\small
+\begin{itemize}[compresslist]
+\item Effect of $r$ on the separation measure $s = \frac{\mathrm{tr}(\Kbf_1\Qbf_2)+\mathrm{tr}(\Kbf_2\Qbf_1)}{\mathrm{tr}(\Kbf_1\Qbf_1)+\mathrm{tr}(\Kbf_2\Qbf_2)}$ \textbf{(left)} and classification accuracy \textbf{(right)}.
+\end{itemize}
+\vspace{-1em}
+\begin{center}
+\includegraphics[width=.35\textwidth]{s_measure_new_v2_cropped_embedded.pdf} \hspace{.6em}
+% \quad
+\includegraphics[width=.35\textwidth]{classification_r_v2_cropped_embedded.pdf}
+%\caption{The separation measure \textbf{(left)} and classification accuracy \textbf{(right)} versus $r$.}
+\end{center}
+%\end{figure}
+}   
+
 }
 
 %----------------------------------------------------------------------------------------
@@ -414,11 +463,11 @@ for each $\Qbf_i$, given $\Kbf_1, \dots, \Kbf_S$.
 \small{ % Reduce the font size in this block
 %\bibliographystyle{plain}
 %\bibliography{references_v2}
- \begin{itemize}[compresslist]
+\begin{enumerate}[compresslist]
 \item J. Friedman et.al, ``Sparse inverse covariance estimation with the graphical lasso,'' Biostatistics, 2008.
 \item R. Mazumder and T. Hastie, ``The graphical lasso: New insights and alternatives,'' Elect. journal of stat., 2012.
 %\item H. Mansour, et.al, ``Video background subtraction using semi-supervised robust matrix completion,'' IEEE ICASSP, 2014
-\end{itemize}
+\end{enumerate}
 }
 }
 
