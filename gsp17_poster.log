@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  25 MAY 2017 16:02
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.17)  25 MAY 2017 18:49
 entering extended mode
 **gsp17_poster.tex
 
@@ -721,7 +721,72 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count149
 )
-("C:\Users\anjo8\Google Drive\GSP 2017\presentation\gsp17_poster\macros.tex"
+(C:\Users\anjo8\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count150
+\c@ALC@line=\count151
+\c@ALC@rem=\count152
+\c@ALC@depth=\count153
+\ALC@tlm=\skip77
+\algorithmicindent=\skip78
+) (C:\Users\anjo8\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\subcaption.sty
+Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
+\c@subfigure=\count154
+\c@subtable=\count155
+)
+(C:\Users\anjo8\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithm2e\algorithm2e.st
+y
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count156
+\algocf@hangindent=\skip79
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\xspace.sty"
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
+Package: relsize 2003/07/04 ver 3.1
+)
+********************************************************
+Package `algorithm2e' Release 5.1 -- october 19 2015 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (christophe.fiorio@umontpellier.fr)
+********************************************************
+\skiptotal=\skip80
+\skiplinenumber=\skip81
+\skiprule=\skip82
+\skiphlne=\skip83
+\skiptext=\skip84
+\skiplength=\skip85
+\algomargin=\skip86
+\skipalgocfslide=\skip87
+\algowidth=\dimen209
+\inoutsize=\dimen210
+\inoutindent=\dimen211
+\interspacetitleruled=\dimen212
+\interspacealgoruled=\dimen213
+\interspacetitleboxruled=\dimen214
+\algocf@ruledwidth=\skip88
+\algocf@inoutbox=\box73
+\algocf@inputbox=\box74
+\AlCapSkip=\skip89
+\AlCapHSkip=\skip90
+\algoskipindent=\skip91
+\algocf@nlbox=\box75
+\algocf@hangingbox=\box76
+\algocf@untilbox=\box77
+\algocf@skipuntil=\skip92
+\algocf@capbox=\box78
+\algoheightruledefault=\skip93
+\algoheightrule=\skip94
+\algotitleheightruledefault=\skip95
+\algotitleheightrule=\skip96
+\c@algocfline=\count157
+\c@algocfproc=\count158
+\c@algocf=\count159
+\algocf@algoframe=\box79
+\algocf@algobox=\box80
+) ("C:\Users\anjo8\Google Drive\GSP 2017\presentation\gsp17_poster\macros.tex"
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\bm.sty"
 Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup6
@@ -732,34 +797,34 @@ LaTeX Info: Redefining \bm on input line 204.
 ))
 ("C:\Users\anjo8\Google Drive\GSP 2017\presentation\gsp17_poster\gsp17_poster.a
 ux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 66.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 108.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1ppl.fd"
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 (C:\Users\anjo8\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count150
-\scratchdimen=\dimen209
-\scratchbox=\box73
-\nofMPsegments=\count151
-\nofMParguments=\count152
+\scratchcounter=\count160
+\scratchdimen=\dimen215
+\scratchbox=\box81
+\nofMPsegments=\count161
+\nofMParguments=\count162
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count153
-\MPscratchDim=\dimen210
-\MPnumerator=\count154
-\makeMPintoPDFobject=\count155
+\MPscratchCnt=\count163
+\MPscratchDim=\dimen216
+\MPnumerator=\count164
+\makeMPintoPDFobject=\count165
 \everyMPtoPDFconversion=\toks37
 ) ABD: EveryShipout initializing macros
 *geometry* driver: auto-detecting
@@ -798,148 +863,127 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<figures/USC_logo.pdf, id=30, 578.16pt x 180.675pt>
-File: figures/USC_logo.pdf Graphic file (type pdf)
- <use figures/USC_logo.pdf>
-Package pdftex.def Info: figures/USC_logo.pdf used on input line 101.
-(pdftex.def)             Requested size: 95.99217pt x 30.0pt.
+<figures/logo_usc_merl.pdf, id=30, 963.6pt x 542.025pt>
+File: figures/logo_usc_merl.pdf Graphic file (type pdf)
 
-<figures/logo_MERL.pdf, id=31, 297.11pt x 124.465pt>
-File: figures/logo_MERL.pdf Graphic file (type pdf)
-
-<use figures/logo_MERL.pdf>
-Package pdftex.def Info: figures/logo_MERL.pdf used on input line 101.
-(pdftex.def)             Requested size: 71.6116pt x 30.0pt.
+<use figures/logo_usc_merl.pdf>
+Package pdftex.def Info: figures/logo_usc_merl.pdf used on input line 143.
+(pdftex.def)             Requested size: 133.32982pt x 75.0pt.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 101.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 143.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 101.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 143.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 101.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 143.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 101.
-LaTeX Font Info:    Try loading font information for U+msa on input line 101.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 143.
+LaTeX Font Info:    Try loading font information for U+msa on input line 143.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 101.
+LaTeX Font Info:    Try loading font information for U+msb on input line 143.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Underfull \hbox (badness 1221) in paragraph at lines 101--101
-[][]\T1/ppl/b/n/20.74 Disc-GLasso: Dis-crim-i-na-tive Graph Learn-ing
- []
+LaTeX Font Info:    Try loading font information for T1+phv on input line 172.
 
-LaTeX Font Info:    Try loading font information for T1+phv on input line 125.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 125.
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 172.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsphv.fd"
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 125.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 172.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 125.
-
-Underfull \hbox (badness 1152) in paragraph at lines 125--125
-[]\T1/phv/b/n/10 Problem set-ting\T1/phv/m/n/10 : Pool-based, batch-mode ac-tiv
-e SSL via
- []
-
-<figures/problem_setting.pdf, id=32, 657.45625pt x 109.40875pt>
-File: figures/problem_setting.pdf Graphic file (type pdf)
-
-<use figures/problem_setting.pdf>
-Package pdftex.def Info: figures/problem_setting.pdf used on input line 125.
-(pdftex.def)             Requested size: 292.0514pt x 48.60075pt.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 125.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 172.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 125.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 172.
 Missing character: There is no ; in font nullfont!
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 184.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--211
+Underfull \hbox (badness 10000) in paragraph at lines 258--258
 []\T1/phv/m/n/10 Normalized Lapla-cian $[] \OT1/cmr/m/n/10 =$
  []
 
-<figures/graph_ex.pdf, id=33, 198.7425pt x 332.24126pt>
+<figures/graph_ex.pdf, id=31, 198.7425pt x 332.24126pt>
 File: figures/graph_ex.pdf Graphic file (type pdf)
 
 <use figures/graph_ex.pdf>
-Package pdftex.def Info: figures/graph_ex.pdf used on input line 211.
+Package pdftex.def Info: figures/graph_ex.pdf used on input line 258.
 (pdftex.def)             Requested size: 51.85356pt x 86.68486pt.
- <figures/eig_gft.pdf, id=34, 286.06876pt x 48.18pt>
+ <figures/eig_gft.pdf, id=32, 286.06876pt x 48.18pt>
 File: figures/eig_gft.pdf Graphic file (type pdf)
 
 <use figures/eig_gft.pdf>
-Package pdftex.def Info: figures/eig_gft.pdf used on input line 211.
+Package pdftex.def Info: figures/eig_gft.pdf used on input line 258.
 (pdftex.def)             Requested size: 238.41125pt x 40.15404pt.
- <figures/gft.pdf, id=35, 476.78125pt x 280.04625pt>
+ <figures/gft.pdf, id=33, 476.78125pt x 280.04625pt>
 File: figures/gft.pdf Graphic file (type pdf)
 
 <use figures/gft.pdf>
-Package pdftex.def Info: figures/gft.pdf used on input line 211.
+Package pdftex.def Info: figures/gft.pdf used on input line 258.
 (pdftex.def)             Requested size: 64.37204pt x 37.80888pt.
- <figures/mem_fn_gft.pdf, id=36, 446.66875pt x 120.45pt>
+ <figures/mem_fn_gft.pdf, id=34, 446.66875pt x 120.45pt>
 File: figures/mem_fn_gft.pdf Graphic file (type pdf)
 
 <use figures/mem_fn_gft.pdf>
-Package pdftex.def Info: figures/mem_fn_gft.pdf used on input line 211.
+Package pdftex.def Info: figures/mem_fn_gft.pdf used on input line 258.
 (pdftex.def)             Requested size: 223.5097pt x 60.27263pt.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-<figures/sampling.pdf, id=37, 565.11125pt x 143.53625pt>
+<figures/sampling.pdf, id=35, 565.11125pt x 143.53625pt>
 File: figures/sampling.pdf Graphic file (type pdf)
 
 <use figures/sampling.pdf>
-Package pdftex.def Info: figures/sampling.pdf used on input line 242.
+Package pdftex.def Info: figures/sampling.pdf used on input line 289.
 (pdftex.def)             Requested size: 238.40572pt x 50.66113pt.
 
-<figures/sampling_graph.pdf, id=38, 473.77pt x 140.525pt>
+<figures/sampling_graph.pdf, id=36, 473.77pt x 140.525pt>
 File: figures/sampling_graph.pdf Graphic file (type pdf)
 
 <use figures/sampling_graph.pdf>
-Package pdftex.def Info: figures/sampling_graph.pdf used on input line 242.
+Package pdftex.def Info: figures/sampling_graph.pdf used on input line 289.
 (pdftex.def)             Requested size: 223.51051pt x 53.6402pt.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-<figures/analogy.pdf, id=39, 543.02875pt x 149.55875pt>
+<figures/analogy.pdf, id=37, 543.02875pt x 149.55875pt>
 File: figures/analogy.pdf Graphic file (type pdf)
 
 <use figures/analogy.pdf>
-Package pdftex.def Info: figures/analogy.pdf used on input line 294.
+Package pdftex.def Info: figures/analogy.pdf used on input line 341.
 (pdftex.def)             Requested size: 268.20982pt x 73.87091pt.
 
-<figures/lemma_int.pdf, id=40, 238.8925pt x 90.3375pt>
+<figures/lemma_int.pdf, id=38, 238.8925pt x 90.3375pt>
 File: figures/lemma_int.pdf Graphic file (type pdf)
 
 <use figures/lemma_int.pdf>
-Package pdftex.def Info: figures/lemma_int.pdf used on input line 294.
+Package pdftex.def Info: figures/lemma_int.pdf used on input line 341.
 (pdftex.def)             Requested size: 134.1033pt x 44.70271pt.
 
-Overfull \hbox (2.11998pt too wide) in paragraph at lines 294--294
+Overfull \hbox (2.11998pt too wide) in paragraph at lines 341--341
  $[]$$[]$ 
  []
 
-<figures/p2_math.pdf, id=41, 532.99126pt x 96.36pt>
+<figures/p2_math.pdf, id=39, 532.99126pt x 96.36pt>
 File: figures/p2_math.pdf Graphic file (type pdf)
  <use figures/p2_math.pdf>
-Package pdftex.def Info: figures/p2_math.pdf used on input line 294.
+Package pdftex.def Info: figures/p2_math.pdf used on input line 341.
 (pdftex.def)             Requested size: 268.20982pt x 48.49158pt.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
@@ -952,75 +996,81 @@ Missing character: There is no ; in font nullfont!
 [2
 
 {C:/Users/anjo8/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/an
-jo8/Google Drive/GSP 2017/presentation/gsp17_poster/figures/USC_logo.pdf> <C:/U
-sers/anjo8/Google Drive/GSP 2017/presentation/gsp17_poster/figures/logo_MERL.pd
-f> <C:/Users/anjo8/Google Drive/GSP 2017/presentation/gsp17_poster/figures/prob
-lem_setting.pdf> <C:/Users/anjo8/Google Drive/GSP 2017/presentation/gsp17_poste
-r/figures/graph_ex.pdf> <C:/Users/anjo8/Google Drive/GSP 2017/presentation/gsp1
-7_poster/figures/eig_gft.pdf> <C:/Users/anjo8/Google Drive/GSP 2017/presentatio
-n/gsp17_poster/figures/gft.pdf> <C:/Users/anjo8/Google Drive/GSP 2017/presentat
-ion/gsp17_poster/figures/mem_fn_gft.pdf> <C:/Users/anjo8/Google Drive/GSP 2017/
-presentation/gsp17_poster/figures/sampling.pdf> <C:/Users/anjo8/Google Drive/GS
-P 2017/presentation/gsp17_poster/figures/sampling_graph.pdf> <C:/Users/anjo8/Go
-ogle Drive/GSP 2017/presentation/gsp17_poster/figures/analogy.pdf> <C:/Users/an
-jo8/Google Drive/GSP 2017/presentation/gsp17_poster/figures/lemma_int.pdf> <C:/
-Users/anjo8/Google Drive/GSP 2017/presentation/gsp17_poster/figures/p2_math.pdf
->]
+jo8/Google Drive/GSP 2017/presentation/gsp17_poster/figures/logo_usc_merl.pdf> 
+<C:/Users/anjo8/Google Drive/GSP 2017/presentation/gsp17_poster/figures/graph_e
+x.pdf> <C:/Users/anjo8/Google Drive/GSP 2017/presentation/gsp17_poster/figures/
+eig_gft.pdf> <C:/Users/anjo8/Google Drive/GSP 2017/presentation/gsp17_poster/fi
+gures/gft.pdf> <C:/Users/anjo8/Google Drive/GSP 2017/presentation/gsp17_poster/
+figures/mem_fn_gft.pdf> <C:/Users/anjo8/Google Drive/GSP 2017/presentation/gsp1
+7_poster/figures/sampling.pdf> <C:/Users/anjo8/Google Drive/GSP 2017/presentati
+on/gsp17_poster/figures/sampling_graph.pdf> <C:/Users/anjo8/Google Drive/GSP 20
+17/presentation/gsp17_poster/figures/analogy.pdf> <C:/Users/anjo8/Google Drive/
+GSP 2017/presentation/gsp17_poster/figures/lemma_int.pdf> <C:/Users/anjo8/Googl
+e Drive/GSP 2017/presentation/gsp17_poster/figures/p2_math.pdf>]
+
+Package caption Warning: Unused \captionsetup[figure] on input line 45.
+See the caption package documentation for explanation.
+
+
 ("C:\Users\anjo8\Google Drive\GSP 2017\presentation\gsp17_poster\gsp17_poster.a
-ux") ) 
+ux") )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 1061 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 17386 strings out of 494045
- 346966 string characters out of 3145968
- 397162 words of memory out of 3000000
- 20293 multiletter control sequences out of 15000+200000
+ 18460 strings out of 494045
+ 363538 string characters out of 3145968
+ 436386 words of memory out of 3000000
+ 21353 multiletter control sequences out of 15000+200000
  49522 words of font info for 95 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 62i,15n,92p,415b,986s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Pro
-gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb><C:/
-Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy9.pfb><
-C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmssi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmssi9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmsy9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmti9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/sy
-mbols/msam7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
-symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/
-uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.p
-fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/
-Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
-Output written on gsp17_poster.pdf (1 page, 1670203 bytes).
+ 62i,15n,92p,415b,2739s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.
+enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.p
+fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy
+7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cm
+bsy9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx
+10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx6.
+pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files (x86)/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files (x86)/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmssi9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmti9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
+msfonts/symbols/msam7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
+/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw
+/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helveti
+c/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8
+a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
+Output written on gsp17_poster.pdf (1 page, 1398710 bytes).
 PDF statistics:
- 450 PDF objects out of 1000 (max. 8388607)
+ 415 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 175 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

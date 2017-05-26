@@ -40,8 +40,50 @@
 \usepackage{natbib}
 \setlength{\bibsep}{0.0pt}
 
+\usepackage{algorithmic}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+\usepackage{subcaption}
+\usepackage[ruled]{algorithm2e}
+\usepackage{color}
+
 %\usepackage{tikz} % Required for flow chart
 %\usetikzlibrary{shapes,arrows} % Tikz libraries required for the flow chart in the template
+
+% Example definitions.
+% --------------------
+\newcommand{\Abf}{\mbox{${\bf A }$} }
+\newcommand{\Bbf}{\mbox{${\bf B }$} }
+\newcommand{\Dbf}{\mbox{${\bf D }$} }
+\newcommand{\Ibf}{\mbox{${\bf I }$} }
+\newcommand{\Kbf}{\mbox{${\bf K }$} }
+\newcommand{\Lbf}{\mbox{${\bf L }$} }
+\newcommand{\Mbf}{\mbox{${\bf M }$} }
+\newcommand{\Pbf}{\mbox{${\bf P }$} }
+\newcommand{\Qbf}{\mbox{${\bf Q }$} }
+\newcommand{\Sbf}{\mbox{${\bf S }$} }
+\newcommand{\Ubf}{\mbox{${\bf U }$} }
+\newcommand{\Vbf}{\mbox{${\bf V }$} }
+\newcommand{\Wbf}{\mbox{${\bf W }$} }
+\newcommand{\Xbf}{\mbox{${\bf X }$} }
+\newcommand{\Ybf}{\mbox{${\bf Y }$} }
+\newcommand{\abf}{\mbox{${\bf a }$} }
+\newcommand{\bbf}{\mbox{${\bf b }$} }
+\newcommand{\dbf}{\mbox{${\bf d }$} }
+\newcommand{\ebf}{\mbox{${\bf e }$} }
+\newcommand{\kbf}{\mbox{${\bf k }$} }
+\newcommand{\pbf}{\mbox{${\bf p }$} }
+\newcommand{\qbf}{\mbox{${\bf q }$} }
+\newcommand{\ubf}{\mbox{${\bf u }$} }
+\newcommand{\vbf}{\mbox{${\bf v }$} }
+\newcommand{\wbf}{\mbox{${\bf w }$} }
+\newcommand{\xbf}{\mbox{${\bf x }$} }
+\newcommand{\ybf}{\mbox{${\bf y }$} }
+\newcommand{\Ecal}{\mbox{${\cal E }$} }
+\newcommand{\Gcal}{\mbox{${\cal G }$} }
+\newcommand{\Kcal}{\mbox{${\cal K }$} }
+\newcommand{\Lcal}{\mbox{${\cal L }$} }
+\newcommand{\Vcal}{\mbox{${\cal V }$} }
 
 \input{macros}
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -92,34 +134,39 @@ textfont=\textsf
 %----------------------------------------------------------------------------------------
 %
 {\includegraphics[height=3em]{logo_MERL.pdf}} % First university/lab logo on the left
-{\huge \bfseries \textcolor{cardinal}{Disc-GLasso: Discriminative Graph Learning with Sparsity Regularization} \vspace{0.3em}} % Poster title
+{\huge \bfseries \textcolor{cardinal}{Disc-GLasso: Discriminative Graph Learning \\with Sparsity Regularization} \vspace{0.3em}} % Poster title
 {\large \textbf{Jiun-Yu Kao$^{1}$, Dong Tian$^{2}$, Hassan Mansour$^{2}$, Antonio Ortega$^{1}$ and Anthony Vetro$^{2}$}  
 \\ \textcolor{gray}{\small{$^{1}$ University of Southern California, Los Angeles, CA}} 
 \\ \textcolor{gray}{\small{$^{2}$ Mitsubishi Electric Research Labs (MERL), Cambridge, MA}}
 %\\ \textcolor{gray}{\small{\{agadde, aanis\}@usc.edu, ortega@sipi.usc.edu}} 
 } % Author names and institution
-{\includegraphics[height=3em]{USC_logo.pdf}\\\includegraphics[height=3em]{logo_MERL.pdf}} % Second university/lab logo on the right
+{\includegraphics[height=7.5em]{logo_usc_merl.pdf}} % Second university/lab logo on the right
 
 %----------------------------------------------------------------------------------------
-%	PROBLEM
+%	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
-\headerbox{Motivation and Problem Definition}{name=problem,column=0,row=0}{
+\headerbox{Motivation}{name=motiv,column=0,row=0}{
 
-\begin{itemize}[compresslist]
-\item Unlabeled data is abundant. Labeled data is expensive and scarce.
-\item \textbf{Problem setting}: Pool-based, batch-mode active SSL via graphs.
+Graph structures are natural to use 
+\begin{itemize}
+\item Construct optimal graph not trivial
+	\begin{itemize}
+	\item learn from data
+	\end{itemize}
+\item Prior art learn graphs w.r.t. 
+	\begin{itemize}
+	\item Representability: benefits energy compaction
+	\item Sparsity: benefits interpretation
+	\end{itemize}
+\end{itemize} 
+
+\textbf{Prior Art Approach and Issue}
+Apply GLasso for data in each class independently
+\begin{itemize}
+	\item Only consider representability and sparsity within each class
+	\item Discrimination between classes not guaranteed
 \end{itemize}
-%
-\begin{center}
-\includegraphics[width=0.98\linewidth]{figures/problem_setting.pdf}
-\end{center}
-%\vspace{0.1\figurespace}
-%
-\begin{enumerate}[compresslist]
-\item \textit{How to predict unknown labels from known labels?}
-\item \textit{What is the optimal set of nodes to label, given the learning algorithm?}
-\end{enumerate}
 
 %\vspace{0.1em} % When there are two boxes, some whitespace may need to be added if the one on the right has more content
 }
@@ -128,7 +175,7 @@ textfont=\textsf
 %	KEY IDEA
 %----------------------------------------------------------------------------------------
 
-\headerbox{Key Ideas}{name=key_idea,column=0,below=problem}{
+\headerbox{Key Ideas}{name=key_idea,column=0,below=motiv}{
 \begin{itemize}[compresslist]
 \item Class labels $\Longrightarrow$ \emph{Smooth or bandlimited graph signals}.
 \item Choosing nodes to label $\Longrightarrow$ \emph{Best sampling set selection}.
