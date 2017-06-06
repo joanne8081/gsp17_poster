@@ -1,4 +1,4 @@
-# gsp17_poster
+# GSP'17 Poster on Disc-GLasso
 
 This repository generates my poster presented at Graph Signal Processing Workshop held at Carnegie Mellon University, May 31 – June 2, 2017. 
 
